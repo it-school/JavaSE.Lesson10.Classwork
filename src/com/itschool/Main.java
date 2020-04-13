@@ -1,12 +1,46 @@
 package com.itschool;
 
-import com.itschool.Classes.Collection;
+import com.itschool.Task1.Collection;
+import com.itschool.Task2.DBUsers;
+import com.itschool.Task2.User;
 
 import java.util.Arrays;
 
-public class Main {
+public class Main
+{
+    public static void main(String[] args)
+    {
+        //task1();
+        task2();
+    }
 
-    public static void main(String[] args) {
+    private static void task2()
+    {
+        User u1 = new User("Ivan", "ivan", "password");
+        User u2 = new User("Egor", "egor.kiev", "pass");
+        User u3 = new User("Sasha", "alex.odessa", "passw1");
+        User u4 = new User("Oleg", "oleg", "pass1");
+
+        DBUsers db = new DBUsers();
+
+        db.addUser(u1);
+        db.addUser(u2);
+        db.addUser(u3);
+        db.addUser(u4);
+
+        System.out.println("New DB:\n" + db.getInfo());
+
+        System.out.println("Let's DELETE the user with ID = 2");
+        db.removeUser(2);
+        System.out.println(db.getInfo());
+
+        System.out.println("Let's ADD one more the user");
+        db.addUser(new User("Sergei", "serg", "pass2"));
+        System.out.println(db.getInfo());
+    }
+
+    public static void task1()
+    {
         Collection collection1 = new Collection();
         Collection collection2 = new Collection();
 
@@ -27,7 +61,7 @@ public class Main {
         System.out.println(collection1);
 
 
-        collection1.Add(1,1);
+        collection1.Add(1, 1);
         System.out.println(collection1);
 
         System.out.println(collection1.Remove(1));
@@ -41,7 +75,6 @@ public class Main {
 
         System.out.println("First '8' is at position: " + collection1.FindFirst(8));
         System.out.println("Last '8' is at position: " + collection1.FindLast(8));
-
 
         collection2.Add(5);
         collection2.Add(6);

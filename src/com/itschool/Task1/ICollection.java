@@ -1,4 +1,4 @@
-package com.itschool.Classes;
+package com.itschool.Task1;
 
 public interface ICollection
 {
