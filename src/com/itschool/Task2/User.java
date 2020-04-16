@@ -53,4 +53,15 @@ public class User
 	{
 		this.name = name;
 	}
+
+	@Override
+	public String toString()
+	{
+		StringBuilder info = new StringBuilder();
+		info.append("|" + String.format("%4d", this.getUserID()) + "\t|\t" + String.format("%10s",
+				this.getName()) + "\t|\t" + String.format("%12s",
+				this.getLogin()) + "\t|\t" + String.format("%10s", this.getPassword()) + "\t\t|\n");
+
+		return info.toString();
+	}
 }

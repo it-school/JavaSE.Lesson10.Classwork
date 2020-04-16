@@ -22,8 +22,9 @@ public class DBUsers implements IDBUsers
 	}
 
 	@Override
-	public void removeUser(int userID)
+	public User removeUser(int userID)
 	{
+		User user = null;
 		if (userID > 0) {
 			for (int i = 0; i < size; i++) {
 				if (users[i].getUserID() == userID) {
@@ -33,11 +34,12 @@ public class DBUsers implements IDBUsers
 						users[j] = users[j + 1];
 					}
 */
+					user = users[i];
 					users[size-- - 1] = null;
-					break;
 				}
 			}
 		}
+		return user;
 	}
 
 	@Override
@@ -48,9 +50,11 @@ public class DBUsers implements IDBUsers
 				"\t|\t\tlogin\t\t|\t  password\t\t|\n" +
 				" ---------------------------------------------------------------\n");
 		for (int i = 0; i < size; i++) {
-			info.append("|" + String.format("%4d", users[i].getUserID()) + "\t|\t" + String.format("%10s",
+			info.append(users[i]);
+			/*info.append("|" + String.format("%4d", users[i].getUserID()) + "\t|\t" + String.format("%10s",
 					users[i].getName()) + "\t|\t" + String.format("%12s",
 					users[i].getLogin()) + "\t|\t" + String.format("%10s", users[i].getPassword()) + "\t\t|\n");
+			 */
 		}
 		info.append(" ---------------------------------------------------------------\n");
 		return info.toString();
@@ -62,6 +66,7 @@ public class DBUsers implements IDBUsers
 		for (int i = 0; i < size; i++) {
 			users[i] = null;
 		}
+		users = new User[0];
 	}
 
 	private void extendDB()

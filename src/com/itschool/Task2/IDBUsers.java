@@ -4,7 +4,7 @@ public interface IDBUsers
 {
 	void addUser(User user);
 
-	void removeUser(int userID);
+	User removeUser(int userID);
 
 	String getInfo();
 

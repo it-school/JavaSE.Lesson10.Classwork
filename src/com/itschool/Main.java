@@ -3,6 +3,7 @@ package com.itschool;
 import com.itschool.Task1.Collection;
 import com.itschool.Task2.DBUsers;
 import com.itschool.Task2.User;
+import com.itschool.Task2_ArrayList.DB;
 
 import java.util.Arrays;
 
@@ -11,7 +12,33 @@ public class Main
     public static void main(String[] args)
     {
         //task1();
-        task2();
+        //task2();
+        task2_List();
+    }
+
+    private static void task2_List()
+    {
+        User u1 = new User("Ivan", "ivan", "password");
+        User u2 = new User("Egor", "egor.kiev", "pass");
+        User u3 = new User("Sasha", "alex.odessa", "passw1");
+        User u4 = new User("Oleg", "oleg", "pass1");
+
+        DB db = new DB();
+
+        db.addUser(u1);
+        db.addUser(u2);
+        db.addUser(u3);
+        db.addUser(u4);
+
+        System.out.println("New DB:\n" + db.getInfo());
+
+        System.out.println("Let's DELETE the user with ID = 2");
+        System.out.println(db.removeUser(2));
+        System.out.println(db.getInfo());
+
+        System.out.println("Let's ADD one more the user");
+        db.addUser(new User("Sergei", "serg", "pass2"));
+        System.out.println(db.getInfo());
     }
 
     private static void task2()
