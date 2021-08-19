@@ -8,4 +8,6 @@ public interface IUsers {
    void pack();
 
    User search(String text);
+
+   Users searchUsers(String text);
 }

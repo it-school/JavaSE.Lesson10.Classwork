@@ -1,11 +1,36 @@
 package com.itschool.j212;
 
 import com.itschool.j212.task1.Collection;
+import com.itschool.j212.task2.User;
+import com.itschool.j212.task2.Users;
 
 import java.util.Arrays;
 
 public class Main {
    public static void main(String[] args) {
+      //task1();
+      task2();
+   }
+
+   private static void task2() {
+      Users users = new Users();
+      System.out.println(users);
+      users.addUser(new User("user1", "password", "name1"));
+      users.addUser(new User("user2", "password", "name2"));
+      users.addUser(new User("user3", "password", "name3"));
+      System.out.println(users);
+      users.removeUser(1);
+      System.out.println(users);
+      users.pack();
+      System.out.println(users);
+
+      System.out.println(users.search("user"));
+      System.out.println();
+      System.out.println(users.searchUsers("user").searchUsers("3"));
+
+   }
+
+   private static void task1() {
       Collection collection = new Collection(1, 4, 0, -3, 7);
       System.out.println(collection);
       collection.add(555, 3);
